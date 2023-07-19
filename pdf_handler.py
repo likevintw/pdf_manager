@@ -4,31 +4,22 @@ import string
 from pypdf import PdfMerger
 
 
-def create_pdf_handler():
-    try:
-        handler = PdfMerger()
-    except:
-        pass
-        # todo: pip3 install pypdf
-        handler = PdfMerger()
-    return handler
 
 
-class pdf_handler:
+class PdfHandler:
     def __init__(self) -> None:
-        self.handler = None
+        pass
 
-    def merge_pdfs(self, pdfs, result_name='result.pdf') -> bool:
+    @staticmethod
+    def merge_pdfs(pdfs, result_name='result.pdf') -> bool:
         try:
-            print("read", pdfs)
+            handler=PdfMerger()
             for pdf in pdfs:
                 print("read {}".format(pdf))
-                self.handler.append(pdf)
-
-            self.handler.write(result_name)
-            self.handler.close()
-            return True
-
-        except:
-            print("Merge PDFs Failed")
-            return False
+                handler.append(pdf)
+            handler.write(result_name)
+            handler.close()
+            print("merge pdfs successfully")
+            
+        except Exception as e:
+            print(f"An error occurred: {e}")

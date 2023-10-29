@@ -15,7 +15,6 @@ class PdfHandler:
     def __init__(self) -> None:
         pass
 
-    
     def merge_pdfs(self, merge_list_path, result_pdf='result.pdf') -> bool:
         try:
             if os.path.exists(result_pdf):
@@ -55,22 +54,6 @@ class PdfHandler:
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
-
-    # @staticmethod
-    # def old_merge_pdfs(pdfs, result_name='result.pdf') -> bool:
-    #     pass
-    #     try:
-    #         handler=PyPDF4.PdfFileMerger
-    #         ()
-    #         for pdf in pdfs:
-    #             print("read {}".format(pdf))
-    #             handler.append(pdf)
-    #         handler.write(result_name)
-    #         handler.close()
-    #         print("merge pdfs successfully")
-
-    #     except Exception as e:
-    #         print(f"An error occurred: {e}")
 
 
 if __name__ == '__main__':
